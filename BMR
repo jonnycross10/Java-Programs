@@ -1,0 +1,71 @@
+public class bmr
+{
+   private String name;
+   private double weight; //kg
+   private double height; //cm
+   private double age; //years
+   
+   public bmr(String n, double w, double h, double a)
+   {
+      name = n;
+      weight = w;
+      height = h;
+      age = a;   
+   }
+
+   public String getName() {return name;}
+   public void setName(String nn) {name = nn;} //whatever comes in is assigned to field name
+   public double getWeight() {return weight;}
+   public void setWeight(double nw) {weight = nw;}
+   public double getAge() {return age;}
+   public void setAge(double na) {age = na;}
+   public double getHeight() {return height;}
+   public void setHeight(double nh) {height = nh;}
+   
+   
+   
+   public double femaleBMR()
+   {
+      return 10 * weight + 6.25 * height - 5 * age - 161;
+   
+   } //end constructor
+   
+   public double maleBMR()
+   {
+      return 10 * weight + 6.25 * height - 5 * age + 5;
+   
+   } //end constructor
+
+
+   public static void main(String[] args)
+      {
+         bmr female = new bmr("Jane", 69, 170,35);
+         bmr male = new bmr("Big Larry", 69, 170, 35);
+         
+         
+         System.out.println(female.getName() + " " + female.femaleBMR()); //print female bmr
+         System.out.println(male.getName() + " " + male.maleBMR()); //print male bmr
+         male.setName("Jonny"); //change name
+         System.out.println(male.getName() + " " + male.maleBMR()); //print male bmr with new name
+         
+         System.out.println(female.getAge() + " " + female.femaleBMR()); //print female age
+         System.out.println(male.getAge() + " " + male.maleBMR()); //print male age    
+         male.setAge(50); //change age
+         System.out.println(male.getAge() + " " + male.maleBMR()); //print new male age
+         
+         System.out.println(female.getHeight() + " " + female.femaleBMR()); //print female height
+         System.out.println(male.getHeight() + " " + male.maleBMR()); //print male height
+         male.setHeight(156); //change height
+         System.out.println(male.getHeight() + " " + male.maleBMR()); //print new male height
+         
+         System.out.println(female.getWeight() + " " + female.femaleBMR()); //print female weight
+         System.out.println(male.getWeight() + " " + male.maleBMR()); // print male weight 
+         male.setWeight(40); // change weight 
+         System.out.println(male.getWeight() + " " + male.maleBMR()); //print new male weight
+         
+          
+         
+      }
+
+   
+}//end class
