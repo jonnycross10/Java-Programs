@@ -1,0 +1,100 @@
+public class Robot
+{
+   String id;
+   int x;
+   int y;
+   char direction;
+   
+   public Robot()
+   {
+      id = "Robby";
+      x = y = 400;
+      direction = 'N';
+   }
+   
+   public String toString()
+   {
+      return "Name: " + id + " Position: " + x + ", " + y + " Direction: " + direction;
+   }
+   
+   public String getId() {return id;}
+   public int getXposition() {return x;}
+   public int getYposition() {return y;}
+   public char getDirection() {return direction;}
+   
+   public void move(int steps)
+   {
+      switch(direction)
+      {
+         case 'S':
+         y = y - steps; 
+         break;
+         
+         case 'N': 
+         y = y + steps;
+         break; 
+         
+         case 'E':
+         x = x + steps;
+         break;
+         
+         case 'W':
+         x = x - steps;
+         break;
+      }  
+   }
+   
+      public void moveTo(int nx, int ny)
+      {
+         x = nx;
+         y = ny;
+      }
+      
+      public void setDirection(char nd)
+      {
+         if (nd == 'N' || nd == 'S' || nd == 'W' || nd == 'E')
+         {
+            direction = nd;
+         }
+       } 
+      public static void main(String[] args)
+      {
+         System.out.println("I am going to move Robby in a square");
+         System.out.println("Expect the first and last position to be the same."); 
+         Robot r1 = new Robot();
+         r1.moveTo(300, 250);
+         System.out.println("Robby is starting at position: " + r1.getXposition() + ", " + r1.getYposition());
+         System.out.println(r1.toString());
+         r1.move(10);
+         System.out.println(r1.toString());
+         r1.setDirection('E');
+         r1.move(10);
+         System.out.println(r1.toString());
+         r1.setDirection('S');
+         r1.move(10);
+         System.out.println(r1.toString());
+         r1.setDirection('W');
+         r1.move(10);
+         System.out.println(r1.toString());
+         
+         System.out.println(" "); 
+         
+         System.out.println("I am going to move Robby in a rectangle."); 
+         System.out.println("Expect the first and last position to be the same."); 
+         r1.moveTo(200, 350);
+         r1.setDirection('N');
+         System.out.println("Robby is starting at position: " + r1.getXposition() + ", " + r1.getYposition());
+         System.out.println(r1.toString());
+         r1.move(10);
+         System.out.println(r1.toString());
+         r1.setDirection('E');
+         r1.move(50);
+         System.out.println(r1.toString());
+         r1.setDirection('S');
+         r1.move(10);
+         System.out.println(r1.toString());
+         r1.setDirection('W');
+         r1.move(50);
+         System.out.println(r1.toString());        
+      }
+ }     
