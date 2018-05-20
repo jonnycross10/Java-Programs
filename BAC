@@ -1,0 +1,126 @@
+public class BloodAlcoholContent
+{
+   private String name;
+   private char gender;
+   private double sd; //standard drinks 10 g
+   private double dp; // drinking period hours
+   private double wt; //body weight kg
+  
+  
+  public BloodAlcoholContent()
+  {
+  name = "Jonny";
+  gender = 'm';
+  sd = 4;
+  dp = 2;
+  wt = 54;
+  }
+  
+  
+   public BloodAlcoholContent(String n, char g, double psd, double pdp, double pwt) //class
+   {
+      name = n;
+      gender = g;
+      sd = psd;
+      dp = pdp;
+      wt = pwt;
+     
+   }
+   public double bloodAlcoholContent() //method
+   {
+      final double BODY_WATER = 0.806; //local variable that's a constant
+      final double BODY_WATER_FEMALE = 0.49;
+      final double BODY_WATER_MALE = 0.58;
+      final double METABOLISM_FEMALE = 0.017;
+      final double METABOLISM_MALE = 0.015;
+     
+      double mr;
+      double bw;
+      
+      if (gender == 'f')
+      {
+         bw = BODY_WATER_FEMALE;
+         mr = METABOLISM_FEMALE;
+      }
+      else
+      {
+      bw = BODY_WATER_MALE;
+      mr = METABOLISM_MALE;
+      }
+     
+     
+      return ((bw * sd)/(BODY_WATER * wt))- (mr *dp);      //computation
+  
+   }
+   
+   
+   //accessors and mutators
+   public String getName(){return name;}
+   public char getGender(){return gender;}
+   public double getSD(){return sd;}
+   public double getDP(){return dp;}
+   public double getWT(){return wt;}
+  
+   
+   public String toString()
+   {
+   return gender + "This is your gender";
+   }
+  
+  
+   public static void main(String[] args)
+   {
+      BloodAlcoholContent person1 = new BloodAlcoholContent();
+      //testing accessors
+      System.out.println("Name: " + person1.getName());
+      if (person1.getGender() == 'f' || person1.getGender() == 'F')
+      {
+         System.out.println("The gender is female.");
+      }
+      else 
+      {
+         System.out.println("The gender is male.");
+      }
+      System.out.println("The standard drinks are " + person1.getSD() + ".");
+      System.out.println("The drinking period is " + person1.getDP() + " hours.");
+      System.out.println(person1.getName() + "'s weight is " + person1.getWT() + "kg."); 
+      
+      //outputting the BAC and symptoms for our test to show the code works
+      System.out.println(person1.bloodAlcoholContent() + " is your blood alcohol level!!!"); //runs method not class
+      if (person1.bloodAlcoholContent() < .03)
+      {
+      System.out.println("Feeling relaxed");
+      }
+      else if (person1.bloodAlcoholContent() <.06)
+      {
+      System.out.println("Inhibitions have been lowered");
+      } 
+      else if(person1.bloodAlcoholContent() <.1)
+      {
+      System.out.println("Reduced sensitivity to pain");
+      }
+      else if(person1.bloodAlcoholContent() < 0.2)
+      {
+      System.out.println("Over expression, maybe vomitting");
+      }
+      else if(person1.bloodAlcoholContent() < .3)
+      {
+      System.out.println("Nausea, vomitting, mood swings, decreased libito");
+      }
+      else if(person1.bloodAlcoholContent() < .4)
+      {
+      System.out.println("Stupor, loss of understanding, and low possibility of death");
+      }
+      else if(person1.bloodAlcoholContent() < .5)
+      {
+      System.out.println("Coma and intermediate possibility of death");
+      }
+      else 
+      {
+      System.out.println("High possibility of death");
+      }
+   }
+   
+}
+
+
