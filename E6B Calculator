@@ -1,0 +1,70 @@
+public class E6B
+{
+   private double d; // desired course degrees private 
+   double Va; // true airspeedprivate 
+   double w; // wind direction degrees private
+   double Vw; // wind speed
+  
+   public E6B()
+    {
+       d = 0;
+       Va = 130;
+       w = 270; // from the west
+       Vw = 5;
+    
+    }
+    public E6B( double pd, double pVa, double pw, double pVw  )
+    {
+       d = pd;
+       Va = pVa;
+       w = pw;
+       Vw = pVw;
+    }
+    
+    //accessors
+    public double getDesiredCourse(){return d;}
+    public double getAirSpeed(){return Va;}
+    public double getWindDirection(){return w;}
+    public double getWindSpeed(){return Vw;}
+    
+    public double deltaA()//wind correction angle
+    {
+      double dr = Math.toRadians( d ); // desired course in radians
+      double wr = Math.toRadians( w ); //wind direction in radians 
+      return  Math.toDegrees(Math.asin((Vw*Math.sin(wr-dr)/Va   )));
+      }
+    
+    public double groundSpeed()
+    {
+       double dr = Math.toRadians( d ); // desired course radians
+       double wr = Math.toRadians( w );
+       return Math.sqrt((Va*Va)+(Vw*Vw)-(2*Va*Vw*Math.cos(dr-wr+deltaA())));
+     } 
+   
+    public double heading()
+    {
+       double dr = Math.toRadians(d); // desired course radians
+       double wr = Math.toRadians(w);
+         
+       return (180/Math.PI)*Math.asin((Vw/Va)*Math.sin(Math.PI*(wr-dr)/180));
+    }
+    public String toString()
+    {
+      return "Wind is blowing from the direction "+w+" degrees from north at speeds "+Vw+" mph. You may go "+d+" degrees from due north at "+Va+" mph.";
+    }
+    public static void main(String[] args)
+    {
+       E6B E1= new E6B(15,30,45,50);
+       System.out.println(E1.toString());
+        
+       double groundSpeed = E1.groundSpeed();
+       System.out.println("GroundSpeed is "+groundSpeed+"mph");
+        
+       double deltaA = E1.deltaA();
+       System.out.println("delta A is "+deltaA);
+        
+       double heading = E1.heading();
+       System.out.println("heading is " + heading );
+       
+    }  
+ }
