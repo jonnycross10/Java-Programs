@@ -1,0 +1,169 @@
+import java.util.Scanner;
+import java.util.Random;
+public class RPScLSp
+{
+   public static void main(String[] args)
+   {
+     Scanner sc = new Scanner(System.in);
+     Random rand = new Random(); 
+     String name = "";
+     final int rock = 0;
+     final int paper = 1;
+     final int scissors = 2;
+     final int lizard = 3;
+     final int spock = 4;
+     System.out.println("Welcome to rock paper scissors lizard spock!");
+     System.out.println("Rules: Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons spock,");
+     System.out.println("spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves spock, spock vaporizes rock, and rock crushes scissors");
+     System.out.println("Enter rock, paper, scissors, lizard, or spock!"); 
+     String input = sc.nextLine();
+     int compChoice = rand.nextInt(5);
+     if (compChoice == 0)
+     {
+         name = "rock";
+     }
+     else if (compChoice == 1)
+     {
+         name = "paper";
+     }
+     else if (compChoice == 2)
+     {   
+         name = "scissors";
+     }
+     else if (compChoice == 3)
+     {   
+         name = "lizard";
+     } 
+     else if (compChoice == 4)
+     {   
+         name = "spock";
+     }       
+     System.out.println("The computer chose " + name);
+     if (compChoice == 0 )//rock 
+     {
+         
+         switch (input)
+         {
+            case "rock":
+            System.out.println("You tie");
+            break;
+         
+            case "paper":
+            System.out.println("You Win");
+            break; 
+            
+            case "scissors":
+            System.out.println("You lose");
+            break;
+            
+            case "lizard":
+            System.out.println("You lose");
+            break;
+            
+            case "spock":
+            System.out.println("You win");  
+            break;
+         }
+     }
+         else if (compChoice == 1 )//paper 
+     {
+         switch (input)
+         {
+            case "rock":
+            System.out.println("You lose");
+            break;
+         
+            case "paper":
+            System.out.println("You tie");
+            break; 
+            
+            case "scissors":
+            System.out.println("You win");
+            break;
+            
+            case "lizard":
+            System.out.println("You win");
+            break;
+            
+            case "spock":
+            System.out.println("You lose");  
+            break;
+         }
+     }
+        else if (compChoice == 2 )//scissors
+     {
+         switch (input)
+         {
+            case "rock":
+            System.out.println("You win");
+            break;
+         
+            case "paper":
+            System.out.println("You lose");
+            break; 
+            
+            case "scissors":
+            System.out.println("You tie");
+            break;
+            
+            case "lizard":
+            System.out.println("You lose");
+            break;
+            
+            case "spock":
+            System.out.println("You win");  
+            break;
+         }
+     }
+         else if (compChoice == 3 )//lizard
+     {
+         switch (input)
+         {
+            case "rock":
+            System.out.println("You win");
+            break;
+         
+            case "paper":
+            System.out.println("You lose");
+            break; 
+            
+            case "scissors":
+            System.out.println("You win");
+            break;
+            
+            case "lizard":
+            System.out.println("You tie");
+            break;
+            
+            case "spock":
+            System.out.println("You lose");  
+            break;
+         }
+     }
+         else if (compChoice == 4 )//spock
+     {
+         switch (input)
+         {
+            case "rock":
+            System.out.println("You lose");
+            break;
+         
+            case "paper":
+            System.out.println("You win");
+            break; 
+            
+            case "scissors":
+            System.out.println("You lose");
+            break;
+            
+            case "lizard":
+            System.out.println("You win");
+            break;
+            
+            case "spock":
+            System.out.println("You tie");  
+            break;
+         }
+     }
+   }
+}
